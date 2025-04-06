@@ -31,7 +31,7 @@ export default function Home() {
           Hello world!
         </h1>
         <button onClick={addNewFox}>Add new fox</button>
-        {images.map(({ id, url }) => (
+        {images.map(({ id, url }, index) => (
           <div key={id} className="p-4">
             <LazyImage 
               src={url}
@@ -39,8 +39,10 @@ export default function Home() {
               height="auto"
               title="Random Fox"
               className="rounded bg-gray-300"
-              onClick={() => console.log("hey")
-              }
+              onClick={() => console.log("hey")}
+              onLazyLoad = {(img) => {
+                console.log(`Image #${index + 1} cargada. Nodo:`, img);
+              }}
             />
           </div>
         ))}
