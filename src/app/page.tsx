@@ -16,14 +16,19 @@ export default function Home() {
       url: `https://randomfox.ca/images/${myRandom()}.jpg`,
     };
 
-    setImages([
-      ...images,
-      newImageItem
-    ])
+    setImages([...images, newImageItem]);
+    window.plausible("Signup");
   }
 
   return (
     <div>
+      <head>
+      <script 
+        defer 
+        data-domain="domain1.com,domain2.com,domain3.com" 
+        src="https://plausible.io/js/script.js"
+      ></script>
+      </head>
       
       <main>
         <h1 className="text-3xl font-bold underline">
